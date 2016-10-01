@@ -1,5 +1,7 @@
 # shopping-list
 
+[![Build Status](https://travis-ci.org/chudaol/Pomodoro.svg?branch=master)](https://travis-ci.org/chudaol/Pomodoro)
+
 > Pomodoro application
 
 ## Build Setup
