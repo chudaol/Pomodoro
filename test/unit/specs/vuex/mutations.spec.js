@@ -2,7 +2,7 @@ import Vue from 'vue'
 import mutations from 'src/vuex/mutations'
 import * as types from 'src/vuex/mutation_types'
 
-describe.only('mutations', () => {
+describe('mutations', () => {
   var state;
 
   beforeEach(() => {
