@@ -1,15 +1,16 @@
-//actions.js
 import * as types from './mutation_types'
 
-export const start = ({ dispatch }) => {
-  dispatch(types.START)
-}
-export const pause = ({ dispatch }) => {
-  dispatch(types.PAUSE)
-}
-export const stop = ({ dispatch }) => {
-  dispatch(types.STOP)
-}
-export const toggleSound = ({ dispatch }) => {
-  dispatch(types.TOGGLE_SOUND)
+export default {
+  start: ({ commit }) => {
+    commit(types.START)
+  },
+  pause: ({ commit }) => {
+    commit(types.PAUSE)
+  },
+  stop: ({ commit }) => {
+    commit(types.STOP)
+  },
+  toggleSound: ({ commit }) => {
+    commit(types.TOGGLE_SOUND)
+  }
 }

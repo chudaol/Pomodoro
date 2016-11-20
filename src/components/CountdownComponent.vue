@@ -1,20 +1,21 @@
-<template lang='jade'>
-  .well
-    .pomodoro-timer
-      span {{ min | leftpad }}:{{ sec | leftpad }}
+<template>
+  <div class="well">
+    <div class="pomodoro-timer">
+      <span>{{ min | leftpad }}:{{ sec | leftpad }}</span>
+    </div>
+  </div>
 </template>
-
-<script>
-  import { getMinutes, getSeconds } from '../vuex/getters'
-  export default {
-    vuex: {
-      getters: {
-        min: getMinutes,
-        sec: getSeconds
-      }
-    }
-  }
-</script>
 
 <style scoped>
 </style>
+
+<script>
+  import { mapGetters } from 'vuex'
+
+  export default {
+    computed: mapGetters({
+      min: 'getMinutes',
+      sec: 'getSeconds'
+    })
+  }
+</script>

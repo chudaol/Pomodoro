@@ -1,27 +1,18 @@
-<template lang='jade'>
-  .well
-    img(:src="catimgsrc")
+<template>
+  <div class="well kittens">
+    <img :src="catimgsrc" />
+  </div>
 </template>
 
-<script>
-  import { getTimestamp } from '../vuex/getters'
+<style scoped>
+</style>
 
+<script>
   export default {
     computed: {
-      catimgsrc() {
-        return 'http://thecatapi.com/api/images/get?size=med' + '&ts=' + this.timestamp
-      }
-    },
-    vuex: {
-      getters: {
-        timestamp: getTimestamp
+      catimgsrc () {
+        return 'http://thecatapi.com/api/images/get?size=med&ts=' + this.$store.getters.getTimestamp
       }
     }
   }
 </script>
-
-<style scoped>
-  .well {
-    text-align: center;
-  }
-</style>

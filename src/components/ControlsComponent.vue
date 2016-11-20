@@ -1,27 +1,17 @@
-<template lang='jade'>
-  button(title='start' @click='start', :disabled='isStarted && !isPaused')
-    i.glyphicon.glyphicon-play
-  button(title='pause' @click='pause', :disabled='!isStarted || isPaused')
-    i.glyphicon.glyphicon-pause
-  button(title='stop' @click='stop', :disabled='!isStarted')
-    i.glyphicon.glyphicon-stop
-  i.toggle-volume.glyphicon(v-show='isStarted && !isPaused && isWorking', :class="{ 'glyphicon-volume-off': isSoundEnabled, 'glyphicon-volume-up': !isSoundEnabled }", @click='toggleSound')
+<template>
+  <span>
+    <button title="start" :disabled='isStarted && !isPaused' @click="start">
+      <i class="glyphicon glyphicon-play"></i>
+    </button>
+    <button title="pause" :disabled='!isStarted || isPaused' @click="pause">
+      <i class="glyphicon glyphicon-pause"></i>
+    </button>
+    <button title="stop" :disabled='!isStarted' @click="stop">
+      <i class="glyphicon glyphicon-stop"></i>
+    </button>
+    <i class="toggle-volume glyphicon" v-show="isStarted && !isPaused && isWorking" :class="{ 'glyphicon-volume-off': isSoundEnabled, 'glyphicon-volume-up': !isSoundEnabled }" @click="toggleSound"></i>
+  </span>
 </template>
-
-<script>
-  import { start, pause, stop, toggleSound } from '../vuex/actions'
-  import { isStarted, isStopped, isPaused, isWorking, isSoundEnabled } from '../vuex/getters'
-  export default {
-    vuex: {
-      getters: {
-        isStarted, isStopped, isPaused, isWorking, isSoundEnabled
-      },
-      actions: {
-        start, pause, stop, toggleSound
-      }
-    }
-  }
-</script>
 
 <style scoped>
   button:disabled i {
@@ -32,3 +22,13 @@
     cursor: pointer;
   }
 </style>
+
+
+<script>
+  import { mapGetters, mapActions } from 'vuex'
+
+  export default {
+    computed: mapGetters(['isStarted', 'isPaused', 'isStopped', 'isWorking', 'isSoundEnabled']),
+    methods: mapActions(['start', 'stop', 'pause', 'toggleSound'])
+  }
+</script>

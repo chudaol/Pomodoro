@@ -1,6 +1,7 @@
-//store.js
 import Vue from 'vue'
 import Vuex from 'vuex'
+import getters from './getters'
+import actions from './actions'
 import mutations from './mutations'
 import { WORKING_TIME } from '../config'
 
@@ -19,5 +20,7 @@ const state = {
 
 export default new Vuex.Store({
   state,
-  mutations
+  mutations,
+  getters,
+  actions
 })
