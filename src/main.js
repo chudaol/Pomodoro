@@ -22,5 +22,6 @@ Vue.filter('addspace', (value) => {
 /* eslint-disable no-new */
 new Vue({
   el: 'app',
-  components: { App }
+  components: { App },
+  render: (h) => h(App)
 })
